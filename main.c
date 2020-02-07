@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 		LeList *grad = le_model_get_gradients(LE_MODEL(nn), features, prices);
 		LE_OPTIMIZER(optimizer)->gradients = grad;
 		le_optimizer_step(LE_OPTIMIZER(optimizer));
-		le_list_foreach(grad, le_tensor_free);
+		le_list_foreach(grad, (LeFunction)le_tensor_free);
 	}
 	le_bgd_free(optimizer);
 	le_sequential_free(nn);
