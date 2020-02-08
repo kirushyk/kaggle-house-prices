@@ -3,8 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-	LeTensor *features = le_matrix_new_zeros(1460, 80);
-	LeTensor *prices = le_matrix_new_zeros(1460, 1);
+	LeTensor *features = le_matrix_new_zeros(80, 1460);
+	LeTensor *prices = le_matrix_new_zeros(1, 1460);
 	LeSequential *nn = le_sequential_new();
 	le_sequential_add(nn, LE_LAYER(le_dense_layer_new("FC1", 80, 80)));
 	le_sequential_add(nn, LE_LAYER(le_activation_layer_new("A1", LE_ACTIVATION_TANH)));
